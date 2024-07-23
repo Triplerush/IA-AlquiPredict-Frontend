@@ -1,0 +1,157 @@
+<main class="container-fluid mt-5 d-flex justify-content-center">
+  <div class="row w-100">
+    <!-- Formulario a la izquierda -->
+    <div class="col-md-6 d-flex flex-column align-items-center">
+      <form [formGroup]="predictForm" (ngSubmit)="onSubmit()" class="needs-validation w-100" novalidate>
+        <div class="mb-3">
+          <label for="antiguedad" class="form-label">Años de antigüedad:</label>
+          <input
+            type="number"
+            id="antiguedad"
+            formControlName="antiguedad"
+            placeholder="Ingrese años de antigüedad"
+            required
+            class="form-control"
+            [ngClass]="{'is-invalid': predictForm.get('antiguedad')?.invalid && predictForm.get('antiguedad')?.touched}"
+          />
+          <div class="invalid-feedback">
+            Por favor, ingresa un número válido para años de antigüedad.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="banos" class="form-label">Número de baños:</label>
+          <input
+            type="number"
+            id="banos"
+            formControlName="banos"
+            placeholder="Ingrese número de baños"
+            required
+            class="form-control"
+            [ngClass]="{'is-invalid': predictForm.get('banos')?.invalid && predictForm.get('banos')?.touched}"
+          />
+          <div class="invalid-feedback">
+            Por favor, ingresa un número válido para número de baños.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="garages" class="form-label">Número de garages:</label>
+          <input
+            type="number"
+            id="garages"
+            formControlName="garages"
+            placeholder="Ingrese número de garages"
+            required
+            class="form-control"
+            [ngClass]="{'is-invalid': predictForm.get('garages')?.invalid && predictForm.get('garages')?.touched}"
+          />
+          <div class="invalid-feedback">
+            Por favor, ingresa un número válido para número de garages.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="area_techada" class="form-label">Área techada (m²):</label>
+          <input
+            type="number"
+            id="area_techada"
+            formControlName="area_techada"
+            placeholder="Ingrese área techada en m²"
+            required
+            class="form-control"
+            [ngClass]="{'is-invalid': predictForm.get('area_techada')?.invalid && predictForm.get('area_techada')?.touched}"
+          />
+          <div class="invalid-feedback">
+            Por favor, ingresa un número válido para área techada.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="area_ocupada" class="form-label">Área ocupada (m²):</label>
+          <input
+            type="number"
+            id="area_ocupada"
+            formControlName="area_ocupada"
+            placeholder="Ingrese área ocupada en m²"
+            required
+            class="form-control"
+            [ngClass]="{'is-invalid': predictForm.get('area_ocupada')?.invalid && predictForm.get('area_ocupada')?.touched}"
+          />
+          <div class="invalid-feedback">
+            Por favor, ingresa un número válido para área ocupada.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="distrito" class="form-label">Distrito:</label>
+          <select id="distrito" formControlName="distrito" class="form-select" required>
+            <option value="">Selección</option>
+            <option value="Barranco">Barranco</option>
+            <option value="Bellavista">Bellavista</option>
+            <option value="Breña">Breña</option>
+            <option value="Carabayllo">Carabayllo</option>
+            <option value="Cercado de Lima">Cercado de Lima</option>
+            <option value="Chorrillos">Chorrillos</option>
+            <option value="Comas">Comas</option>
+            <option value="El Agustino">El Agustino</option>
+            <option value="Independencia">Independencia</option>
+            <option value="Jesús María">Jesús María</option>
+            <option value="La Molina">La Molina</option>
+            <option value="La Victoria">La Victoria</option>
+            <option value="Lince">Lince</option>
+            <option value="Los Olivos">Los Olivos</option>
+            <option value="Lurigancho">Lurigancho</option>
+            <option value="Lurín">Lurín</option>
+            <option value="Magdalena del Mar">Magdalena del Mar</option>
+            <option value="Miraflores">Miraflores</option>
+            <option value="Pachacamac">Pachacamac</option>
+            <option value="Pueblo Libre">Pueblo Libre</option>
+            <option value="Puente Piedra">Puente Piedra</option>
+            <option value="Rímac">Rímac</option>
+            <option value="San Borja">San Borja</option>
+            <option value="San Isidro">San Isidro</option>
+            <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
+            <option value="San Juan de Miraflores">San Juan de Miraflores</option>
+            <option value="San Luis">San Luis</option>
+            <option value="San Martín de Porres">San Martín de Porres</option>
+            <option value="San Miguel">San Miguel</option>
+            <option value="Santa Anita">Santa Anita</option>
+            <option value="Santa María del Mar">Santa María del Mar</option>
+            <option value="Santa Rosa">Santa Rosa</option>
+            <option value="Santiago de Surco">Santiago de Surco</option>
+            <option value="Surquillo">Surquillo</option>
+            <option value="Villa El Salvador">Villa El Salvador</option>
+            <option value="Villa María del Triunfo">Villa María del Triunfo</option>
+          </select>
+          <div class="invalid-feedback">
+            Por favor, selecciona un distrito.
+          </div>
+        </div>
+
+        <!-- Botón de predecir precio -->
+        <button type="submit" class="btn btn-primary w-100" [disabled]="predictForm.invalid">
+          Realizar Predicción
+        </button>
+      </form>
+    </div>
+
+    <!-- Panel de predicción a la derecha -->
+    <div class="col-md-6 d-flex flex-column justify-content-center prediction">
+      <!-- Mensaje a la espera de la predicción -->
+      <div *ngIf="predictedRent === null" class="alert alert-info w-100 text-center">
+        <h3>Esperando predicción...</h3>
+      </div>
+
+      <!-- Espacio para mostrar la predicción -->
+      <div *ngIf="predictedRent !== null" class="alert alert-success w-100 text-center">
+        <h3>Predicción de Renta: {{ predictedRent }}</h3>
+      </div>
+
+      <!-- Mostrar el mensaje de error -->
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3 w-100 text-center">
+        <h3>{{ errorMessage }}</h3>
+      </div>
+    </div>
+  </div>
+</main>

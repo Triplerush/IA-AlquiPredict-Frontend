@@ -1,0 +1,14 @@
+/* Estilos globales para la aplicación */
+body {
+  background-color: #28364E;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+}
+
+header.navbar, footer.footer {
+  background-color: #0A0D14;
+}
+
+header.navbar .navbar-brand, footer.footer p {
+  color: #FFFFFF;
+}
