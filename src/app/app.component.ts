@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
         <a class="navbar-brand" href="#">AlquiPredict</a>
       </div>
     </header>
-    <main class="container-fluid mt-1">
+    <main class="container mt-1">
       <app-predict-form></app-predict-form>
     </main>
   `,

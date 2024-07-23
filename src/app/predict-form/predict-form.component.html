@@ -1,4 +1,4 @@
-<main class="container-fluid mt-5 d-flex justify-content-center">
+<main class="container mt-5 d-flex justify-content-center">
   <div class="row w-100">
     <!-- Formulario a la izquierda -->
     <div class="col-md-6 d-flex flex-column align-items-center">
@@ -86,7 +86,7 @@
         <div class="mb-3">
           <label for="distrito" class="form-label">Distrito:</label>
           <select id="distrito" formControlName="distrito" class="form-select" required>
-            <option value="">Selección</option>
+            <option value="">Seleccione un distrito</option>
             <option value="Barranco">Barranco</option>
             <option value="Bellavista">Bellavista</option>
             <option value="Breña">Breña</option>
@@ -138,20 +138,33 @@
 
     <!-- Panel de predicción a la derecha -->
     <div class="col-md-6 d-flex flex-column justify-content-center prediction">
-      <!-- Mensaje a la espera de la predicción -->
-      <div *ngIf="predictedRent === null" class="alert alert-info w-100 text-center">
-        <h3>Esperando predicción...</h3>
+      <!-- Panel de espera de predicción -->
+      <div *ngIf="predictedRent === null" class="prediction-panel waiting">
+        <div class="icon-container">
+          <i class="bi bi-clock-history"></i>
+        </div>
+        <h3>Esperando predicción</h3>
+        <p>Complete el formulario y haga clic en "Realizar Predicción" para obtener un resultado.</p>
       </div>
 
-      <!-- Espacio para mostrar la predicción -->
-      <div *ngIf="predictedRent !== null" class="alert alert-success w-100 text-center">
-        <h3>Predicción de Renta: {{ predictedRent }}</h3>
+      <!-- Panel para mostrar la predicción -->
+      <div *ngIf="predictedRent !== null" class="prediction-panel success">
+        <div class="icon-container">
+          <i class="bi bi-check-circle"></i>
+        </div>
+        <h3>Predicción de Renta</h3>
+        <p class="prediction-value" *ngIf="predictedRent !== null">Predicción de alquiler: S/.{{ predictedRent.toFixed(2) }}</p>
+
       </div>
 
-      <!-- Mostrar el mensaje de error -->
-      <div *ngIf="errorMessage" class="alert alert-danger mt-3 w-100 text-center">
-        <h3>{{ errorMessage }}</h3>
+      <!-- Panel para mostrar el mensaje de error -->
+      <div *ngIf="errorMessage" class="prediction-panel error">
+        <div class="icon-container">
+          <i class="bi bi-exclamation-triangle"></i>
+        </div>
+        <h3>Error</h3>
+        <p>{{ errorMessage }}</p>
       </div>
-    </div>
+    </div> 
   </div>
 </main>

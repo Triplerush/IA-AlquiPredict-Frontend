@@ -1,18 +1,22 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-/* Estilos globales para la aplicación */
 body {
-  background-color: #28364E;
-  color: #FFFFFF;
-  font-family: Arial, sans-serif;
+  background-color: #343541;
+  color: #ececf1;
+  font-family: 'Söhne', 'Helvetica Neue', 'Arial', sans-serif;
 }
 
-header.navbar, footer.footer {
-  background-color: #0A0D14;
+header.navbar {
+  background-color: #202123;
+  border-bottom: 1px solid #4d4d4f;
+  padding: 0.5rem 1rem;
 }
 
-header.navbar .navbar-brand, footer.footer p {
-  color: #FFFFFF;
+header.navbar .navbar-brand {
+  color: #ececf1;
+  font-weight: bold;
 }
-.brand{
-    margin-left: 40px;
+
+main.container-fluid {
+  max-width: 768px;
+  margin: 2rem auto;
 }
