@@ -10,7 +10,7 @@ export class PredictService {
   private http = inject(HttpClient); // Inyección de HttpClient
 
   // URL del backend Flask
-  private apiUrl = 'http://127.0.0.1:5000/predict';
+  private apiUrl = 'https://alquipredict-app-crgxnaanpq-uc.a.run.app/predict';
 
   // Método para realizar la predicción
   predict(data: any): Observable<any> {
