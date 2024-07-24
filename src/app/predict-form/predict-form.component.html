@@ -4,15 +4,15 @@
     <div class="col-md-6 d-flex flex-column align-items-center">
       <form [formGroup]="predictForm" (ngSubmit)="onSubmit()" class="needs-validation w-100" novalidate>
         <div class="mb-3">
-          <label for="antiguedad" class="form-label">Años de antigüedad:</label>
+          <label for="años-antiguedad" class="form-label">Años de antigüedad:</label>
           <input
             type="number"
-            id="antiguedad"
-            formControlName="antiguedad"
+            id="años-antiguedad"
+            formControlName="Años de antiguedad"
             placeholder="Ingrese años de antigüedad"
             required
             class="form-control"
-            [ngClass]="{'is-invalid': predictForm.get('antiguedad')?.invalid && predictForm.get('antiguedad')?.touched}"
+            [ngClass]="{'is-invalid': predictForm.get('Años de antiguedad')?.invalid && predictForm.get('Años de antiguedad')?.touched}"
           />
           <div class="invalid-feedback">
             Por favor, ingresa un número válido para años de antigüedad.
@@ -20,15 +20,15 @@
         </div>
 
         <div class="mb-3">
-          <label for="banos" class="form-label">Número de baños:</label>
+          <label for="numero-banos" class="form-label">Número de baños:</label>
           <input
             type="number"
-            id="banos"
-            formControlName="banos"
+            id="numero-banos"
+            formControlName="Número de baños"
             placeholder="Ingrese número de baños"
             required
             class="form-control"
-            [ngClass]="{'is-invalid': predictForm.get('banos')?.invalid && predictForm.get('banos')?.touched}"
+            [ngClass]="{'is-invalid': predictForm.get('Numero de banos')?.invalid && predictForm.get('Numero de banos')?.touched}"
           />
           <div class="invalid-feedback">
             Por favor, ingresa un número válido para número de baños.
@@ -36,15 +36,15 @@
         </div>
 
         <div class="mb-3">
-          <label for="garages" class="form-label">Número de garages:</label>
+          <label for="numero-garages" class="form-label">Número de garages:</label>
           <input
             type="number"
-            id="garages"
-            formControlName="garages"
+            id="numero-garages"
+            formControlName="Número de garages"
             placeholder="Ingrese número de garages"
             required
             class="form-control"
-            [ngClass]="{'is-invalid': predictForm.get('garages')?.invalid && predictForm.get('garages')?.touched}"
+            [ngClass]="{'is-invalid': predictForm.get('Numero de garages')?.invalid && predictForm.get('Numero de garages')?.touched}"
           />
           <div class="invalid-feedback">
             Por favor, ingresa un número válido para número de garages.
@@ -52,15 +52,15 @@
         </div>
 
         <div class="mb-3">
-          <label for="area_techada" class="form-label">Área techada (m²):</label>
+          <label for="area-techada" class="form-label">Área techada (m²):</label>
           <input
             type="number"
-            id="area_techada"
-            formControlName="area_techada"
+            id="area-techada"
+            formControlName="Área techada"
             placeholder="Ingrese área techada en m²"
             required
             class="form-control"
-            [ngClass]="{'is-invalid': predictForm.get('area_techada')?.invalid && predictForm.get('area_techada')?.touched}"
+            [ngClass]="{'is-invalid': predictForm.get('Area techada')?.invalid && predictForm.get('Area techada')?.touched}"
           />
           <div class="invalid-feedback">
             Por favor, ingresa un número válido para área techada.
@@ -68,15 +68,15 @@
         </div>
 
         <div class="mb-3">
-          <label for="area_ocupada" class="form-label">Área ocupada (m²):</label>
+          <label for="area-ocupada" class="form-label">Área ocupada (m²):</label>
           <input
             type="number"
-            id="area_ocupada"
-            formControlName="area_ocupada"
+            id="area-ocupada"
+            formControlName="Área ocupada"
             placeholder="Ingrese área ocupada en m²"
             required
             class="form-control"
-            [ngClass]="{'is-invalid': predictForm.get('area_ocupada')?.invalid && predictForm.get('area_ocupada')?.touched}"
+            [ngClass]="{'is-invalid': predictForm.get('Área ocupada')?.invalid && predictForm.get('Área ocupada')?.touched}"
           />
           <div class="invalid-feedback">
             Por favor, ingresa un número válido para área ocupada.
@@ -85,7 +85,7 @@
 
         <div class="mb-3">
           <label for="distrito" class="form-label">Distrito:</label>
-          <select id="distrito" formControlName="distrito" class="form-select" required>
+          <select id="distrito" formControlName="Distrito" class="form-select" required>
             <option value="">Seleccione un distrito</option>
             <option value="Barranco">Barranco</option>
             <option value="Bellavista">Bellavista</option>
